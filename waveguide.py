@@ -1,6 +1,5 @@
 import kwant
 from matplotlib import pyplot
-
 # import scipy.sparse.linalg as sla
 import numpy as np
 import scipy.io as sio
