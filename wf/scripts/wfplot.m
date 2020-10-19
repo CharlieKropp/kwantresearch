@@ -1,4 +1,4 @@
-f1 = squeeze(wf1(2,:));
+f1 = squeeze(wf1(1,:));
 f1_2d = reshape(f1,10,30);
 col_zeros = zeros(13,1);
 row_zeros = zeros(1,30);

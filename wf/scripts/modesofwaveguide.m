@@ -2,7 +2,7 @@
 clear;clc;close all;
 W      = 10;         % Width of the waveguide
 L      = 30;           % Length of the waveguide
-lambda = 10;         % Wavelength
+lambda = 7.0125;        % Wavelength
 k0     = 2*pi/lambda;  % Wavenumber
 [x,y]  = meshgrid(linspace(0,L,L*10+1),linspace(0,W,W*10+1));
  
@@ -11,7 +11,7 @@ Nc  = floor(W/(lambda/2));   % Number of waveguide modes
 n   = 1;                     % Allowed range 1 <= n <= Nc
 ky  = pi/W*n;
 kx  = sqrt(k0^2-ky^2);
-psi = sqrt(2/W)*sin(ky*y).*exp(1i*kx*x);
+psi = sqrt(2/W)*sin(-ky*y).*exp(1i*kx*x);
 figure(1);
 subplot(3,1,1);pcolor(real(psi)   );axis equal tight;shading flat;colorbar;colormap('jet');
 subplot(3,1,2);pcolor(imag(psi)   );axis equal tight;shading flat;colorbar;colormap('jet');
