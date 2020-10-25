@@ -5,7 +5,7 @@ L      = 30;           % Length of the waveguide
 lambda = 7.0125;        % Wavelength
 k0     = 2*pi/lambda;  % Wavenumber
 [x,y]  = meshgrid(linspace(0,L,L*10+1),linspace(0,W,W*10+1));
- 
+
 % Closed (reflecting) boundary conditions (along y axis)
 Nc  = floor(W/(lambda/2));   % Number of waveguide modes
 n   = 1;                     % Allowed range 1 <= n <= Nc
