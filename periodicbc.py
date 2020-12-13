@@ -15,7 +15,7 @@ def plot_conductance(syst, energies):
     pyplot.ylabel("conductance [e^2/h]")
     pyplot.show()
 
-def make_system(a=1, t=1.0, L=30, W=10):
+def make_system(a=1, t=1.0, L=100, W=48):
     lat = kwant.lattice.square(a)
 
     syst = kwant.Builder(kwant.TranslationalSymmetry(lat.vec((0,W))))
@@ -41,7 +41,7 @@ def make_system(a=1, t=1.0, L=30, W=10):
 
 syst = make_system()
 #kwant.plot(syst)
-wf1 = kwant.solvers.default.wave_function(syst, energy=1, params=dict(k_x = 1, k_y = 1))(0)
-#plot_conductance(syst, energies=[.01 * i for i in range(100)])
-kwant.plotter.map(syst, np.real(wf1[1]), cmap='jet')
-#sio.savemat('wf/'+'wf9.mat', {'wf1':wf1})
+wf0 = kwant.solvers.default.wave_function(syst, energy=.1, params=dict(k_x = 0, k_y = 0))(0)
+#plot_conductance(syst, energies=[.04 * i for i in range(100)])
+#kwant.plotter.map(syst, np.real(wf1[1]), cmap='jet')
+sio.savemat('wf/scripts/'+'wfW36.mat', {'wf0':wf0})

@@ -1,10 +1,10 @@
 clear;clc;close all;
  
-load('wf10.mat');
+load('wfW36.mat');
 %W is width 
 %n is desired mode to plot
-W = 30;
-n = 2;
+W = 56;
+n = 4;
 
 wf0modes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 actualmodes = [0, 1, -1, 2, -2, 3, -3, 4, -4, 5, -5];
@@ -19,10 +19,10 @@ figure;pcolor( abs([psi2;psi2]));axis equal tight;shading flat;colormap(jet);col
 %--------------------------------------------------------------------------
 W=size(psi1,1);
 
-if (mod(W, 2) == 0) && (mod(W,4) == 0) && (mod(n,2) == 1)
-    p11=psi1(1,1);p12=psi1(1+W/4,1);p21=psi2(1,1);p22=psi2(1+W/4,1)
-else
-    p11=psi1(1,1);p12=psi1(1+W/8,1);p21=psi2(1,1);p22=psi2(1+W/8,1)
+if (mod(n,2) == 1)
+    p11=psi1(1,1);p12=psi1(1+(W/4),1);p21=psi2(1,1);p22=psi2(1+(W/4),1)
+else 
+    p11=psi1(1,1);p12=psi1(1+(W/16),1);p21=psi2(1,1);p22=psi2(1+W/16,1)
 end
 
 phi     = atan(abs( (p11-p12/1i) / (p11+p12/1i) )); 
@@ -35,3 +35,5 @@ figure;pcolor(real([psi1p;psi1p]));axis equal tight;shading flat;colormap(jet);c
 figure;pcolor(real([psi2p;psi2p]));axis equal tight;shading flat;colormap(jet);colorbar;
 figure;pcolor( abs([psi1p;psi1p]));axis equal tight;shading flat;colormap(jet);colorbar;
 figure;pcolor( abs([psi2p;psi2p]));axis equal tight;shading flat;colormap(jet);colorbar;
+
+input('Type to close')
