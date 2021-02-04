@@ -1,6 +1,0 @@
-# Aharonov-Bohm Phase Change
-def Aharonov_Bohm(site1, site2):            
-    return t * np.exp((2 * np.pi) / W1)   # Phase change is according to width (W1 hops corresponds to a phase change of 2pi)
-
-hops = kwant.builder.HoppingKind((0, 1), lat) # I think that this sets a criteria on hoppings that are of the type where x is constant and y is incremented or decremented
-sys0[hops(sys0)] = Aharonov_Bohm              # For all the hopings that satisfy the above criteria, it applies the phase change
